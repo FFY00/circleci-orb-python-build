@@ -1,5 +1,8 @@
 # circleci-orb-python-build
 
+Builds Python sdists and wheels for packages using the new
+[python-build](https://github.com/FFY00/python-build) CLI tool.
+
 Example:
 ```yaml
 version: 2.1
