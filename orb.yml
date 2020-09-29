@@ -1,0 +1,23 @@
+version: 2.1
+description: |
+  A simple CircleCI Orb to build Python packges. PEP517 compatible.
+
+  It uses the new python-build CLI tool.
+
+commands:
+   build:
+      parameters:
+         path:
+           type: string
+           default: .
+      steps:
+        - run:
+            name: Update pip
+            command: pip install --upgrade pip
+        - run:
+            name: Install python-build
+            command: pip install build
+        - run:
+            name: Build package
+            command: PIP_USE_FEATURE=2020-resolver python -m build -o '<< parameters.path >>'
+
