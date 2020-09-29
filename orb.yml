@@ -10,6 +10,9 @@ commands:
          path:
            type: string
            default: .
+         extra_args:
+           type: string
+           default: ''
       steps:
         - run:
             name: Update pip
@@ -19,5 +22,5 @@ commands:
             command: pip install build
         - run:
             name: Build package
-            command: PIP_USE_FEATURE=2020-resolver python -m build -o '<< parameters.path >>'
+            command: PIP_USE_FEATURE=2020-resolver python -m build -o '<< parameters.path >>' << parameters.extra_args >>
 
