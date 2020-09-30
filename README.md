@@ -3,6 +3,11 @@
 Builds Python sdists and wheels for packages using the new
 [python-build](https://github.com/FFY00/python-build) CLI tool.
 
+The `circleci/python` orb uses the old `setup.py` process to build packages,
+which is deprecated and not compatible with
+[PEP 517](https://www.python.org/dev/peps/pep-0517/). Newer projects that adopt
+PEP 517 cannot use `circleci/python`'s `dist` command, hence the need for this orb.
+
 Example:
 ```yaml
 version: 2.1
